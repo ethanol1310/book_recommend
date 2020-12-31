@@ -42,12 +42,32 @@ Với mô hình dự đoán điểm đánh giá của các đầu sách mới s�
 
 #### 1. Thu thập url thư viện sách
 
+- Trong notebook, việc thu thập url thư viện sách được chia ra làm 4 phương hướng chính:
+- **Lựa chọn theo thể loại (genre)**: Có tổng cộng 21 thể loại khác nhau trong goodreads. Ví dụ url mẫu: https://www.goodreads.com/shelf/show/art
+![alt text](./img/Capture_1.JPG?raw=true "Image 1")
+- **Lựa chọn theo Thời gian (Tháng, năm)**: Được crawl trong khoảng thời gian Jan-2019 -> Dec-2021. Ví dụ url mẫu: https://www.goodreads.com/book/popular_by_date/2020/12?ref=nav_brws_newrels
+![alt text](./img/Capture_2.JPG?raw=true "Image 2")
+- **Lựa chọn theo Album**: Được crawl theo album được chọn trước. Ví dụ: https://www.goodreads.com/list/show/264.Books_That_Everyone_Should_Read_At_Least_Once
+![alt text](./img/Capture_3.JPG?raw=true "Image 3")
+- **Lựa chọn theo Tác giả**: Được crawl theo đường link của mỗi tác giả để lấy danh sách booksl, danh sách tác giả đã được có trong quá trình crawl 3 phần trước. Ví dụ: https://www.goodreads.com/author/list/1825.Harper_Lee
+![alt text](./img/Capture_4.JPG?raw=true "Image 4")
+
 #### 2. Lấy dữ liệu sách từ url đã thu thập được ở bước 1
+
+- Với mỗi Url đã thu thập được ở bước 1, ta dựa vào đó để crawl thông tin chi tiết của quyển sách. Ví dụ về url: https://www.goodreads.com/book/show/2657.To_Kill_a_Mockingbird
+- Vì tốc độ crawling rất chậm (2s/request) nên ta sẽ sử dụng multiprocessing để crawl nhanh hơn (10.000 request/60 phút). Tổng thời gian để crawl 200.000 dữ liệu: ~20 tiếng
+![alt text](./img/Capture_5.JPG?raw=true "Image 5")
 
 #### 3. Lấy url và đánh giá của user từ comment của mỗi url ở bước 1
 
-#### 4. Lấy dữ liệu chi tiết của user từ url ở bước 3
+- Với mỗi Url đã thu thập được ở bước 2 và đã tiền xử lý để loại bỏ dữ liệu trùng lắp, bị thiếu, dữ liệu sai, ta sẽ tiếp tục đào dữ liệu bình luận của người dùng và lấy thông tin đánh giá của mỗi người dùng đó. Việc đào dữ liệu này sẽ giúp tăng tỉ lệ số lượng users/book khi đánh giá một quyển sách
+![alt text](./img/Capture_6.JPG?raw=true "Image 6")
 
+#### 4. Lấy dữ liệu chi tiết của user từ url_user ở bước 3
+
+- Với mỗi Url_user đã thu thập ở bước 3, ta sẽ tiếp tục đào dữ liệu đánh giá từ mỗi người dùng. Việc đào dữ liệu này sẽ giúp tăng tỉ lệ số lượng books/user khi được đánh giá bởi 1 user. Về cơ bản, dữ liệu ở bước 3 và bước 4 giống nhau nhưng được đào theo 2 phương hướng khác nhau
+- Ví dụ url: https://www.goodreads.com/review/list/71848701-miranda-reads?print=true&shelf=read&sort=date_added
+![alt text](./img/Capture_7.JPG?raw=true "Image 7")
 
 
 # Tổng quan dữ liệu
@@ -146,11 +166,10 @@ Bên cạnh đó, ta thấy MF tỏ ra vượt trội hơn so với CF về đ�
 #### 1. Thu thập url thư viện sách
 
 - Trong notebook, việc thu thập url thư viện sách được chia ra làm 4 phương hướng chính:
-- **Lựa chọn theo thể loại (genre)**: Có tổng cộng 21 thể loại khác nhau trong goodreads. Ví dụ url mẫu: https://www.goodreads.com/shelf/show/art
-- **Lựa chọn theo Thời gian (Tháng, năm)**: Được crawl trong khoảng thời gian Jan-2019 -> Dec-2021. Ví dụ url mẫu: https://www.goodreads.com/book/popular_by_date/2020/12?ref=nav_brws_newrels
-- **Lựa chọn theo Album**: Được crawl theo album được chọn trước. Ví dụ: https://www.goodreads.com/list/show/264.Books_That_Everyone_Should_Read_At_Least_Once
-- **Lựa chọn theo Tác giả**: Được crawl theo đường link của mỗi tác giả để lấy danh sách booksl, danh sách tác giả đã được có trong quá trình crawl 3 phần trước. Ví dụ: https://www.goodreads.com/author/list/1825.Harper_Lee
-
+- **Lựa chọn theo thể loại (genre)**:
+- **Lựa chọn theo Thời gian (Tháng, năm)**
+- **Lựa chọn theo Album**
+- **Lựa chọn theo Tác giả**
 
 
 #### 2. Lấy dữ liệu sách từ url đã thu thập được ở bước 1
@@ -162,7 +181,7 @@ run crawl_info_book_detail.py --min_index <index_range_min> --max_index <index_r
 
 Trong đó:
 
-- `<index_range_min` và `<index_range_max>` là index của sách ở tập dữ liệu bước 1 `Info_Book_Url.csv`
+- `<index_range_min>` và `<index_range_max>` là index của sách ở tập dữ liệu bước 1 `Info_Book_Url.csv`
 
 
 #### 3. Lấy url và đánh giá của user từ comment của mỗi url ở bước 1
@@ -173,15 +192,19 @@ python crawl_user.py --min_index <index_range_min> --max_index <index_range_max>
 
 Trong đó:
 
-- `<index_range_min` và `<index_range_max>` là index của sách ở tập dữ liệu bước 1 `Info_Book_Url.csv`
+- `<index_range_min>` và `<index_range_max>` là index của sách ở tập dữ liệu bước 2 `Info_Book_Url.csv` sau khi đã làm sạch dữ liệu
 
 
 
 #### 4. Lấy dữ liệu chi tiết của user từ url ở bước 3
 
 ```
-
+python crawl_user_rating.py -name <username>
 ```
+
+Trong đó:
+
+- `<username>` là tên của người dùng ở tập dữ liệu bước 3 `user_rating_book.csv` sau khi làm sạch dữ liệu, ví dụ: 71848701-miranda-reads
 
 
 
