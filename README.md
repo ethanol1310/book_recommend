@@ -96,7 +96,7 @@ Mỗi dòng mô tả thông tin user và điểm đánh giá của user đối v
 
 Tập dữ liệu này được dùng để hỗ trợ cho mô hình gợi ý sách.
 
-Tập dữ liệu có 157971 dòng và 5 cột với 28274 user đã đánh giá trên 5006 đầu sách.
+Tập dữ liệu có 463979 dòng và 5 cột với 27047 user đã đánh giá trên 150060 đầu sách.
 
 ### Ý nghĩa cột dữ liệu
 
