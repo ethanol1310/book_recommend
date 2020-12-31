@@ -26,11 +26,11 @@ Gồm có các Folder:
 
 ## Đặt vấn đề
 
-Chúng ta sẽ dựa vào bộ dữ liệu thư viện sách cùng với đánh giá của người đọc để tạo ra một mô hình có thể gợi ý sách cho người đọc và dự đoán điểm đánh giá của các đầu sách mới.
+Chúng ta sẽ dựa vào bộ dữ liệu thư viện sách cùng với đánh giá của người đọc để tạo ra một mô hình có thể gợi ý sách cho người đọc và dự đoán người dùng sẽ đánh giá như thế nào đối với những quyển sách còn lại (chưa đánh giá).
 
-Với mô hình gợi ý sách cho người đọc vừa tiết kiệm được thời gian tìm sách, vừa tăng được khả năng mua sách của các độc giả trong thời kỳ thương mại điện tử phát triển.
+Với mô hình gợi ý sách, chúng ta có thể giải quyết 2 vấn đề: Tìm được quyển sách đúng ý với người dùng, khiến trải nghiệm người dùng tốt hơn và tăng khả năng mua sách và cả việc đánh giá tốt cho quyển sách; Tăng sự nổi tiếng cho những tác giả thông qua việc gợi ý những cuốn được đánh giá tốt do việc gợi ý những cuốn sách đúng vói sở thích của đọc giả
 
-Với mô hình dự đoán điểm đánh giá của các đầu sách mới sẽ giúp cho các tác giả cân nhắc được chủ đề, nội dung sáng tác trước khi bắt đầu viết một tác phẩm.
+Với mô hình dự đoán điểm đánh giá từ người dùng, ta có thể biết được những quyển sách nào phù hợp với nhóm người dùng nào và từ đó có thể xây dựng chiến lược quảng bá sách cho nhóm người dùng nhất định
 
 ## Thu thập dữ liệu
 
