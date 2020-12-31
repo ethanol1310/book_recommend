@@ -189,7 +189,7 @@ Trong đó:
 
 - Cài đặt thư viện surprise cho KNN-based collaborative filtering: ```pip install scikit-surprise```
 
-- Copy 2 file ```info_book_detail_per_30.csv``` và ```user_rating_book_filter_per_30.csv``` vào cùng thư mục với file notebook ```Goodreads-Model.ipynb```
+- Copy thư mục ```data``` và ```model``` vào cùng thư mục với file notebook ```Goodreads-Model.ipynb```
 
 - Phần model đã được trình bày cụ thể trong file notebook
 
