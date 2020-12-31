@@ -11,7 +11,7 @@
 | Họ và tên          | MSSV    | Phân công                                                    |
 | ------------------ | ------- | ------------------------------------------------------------ |
 | Nguyễn Hoàng Linh  | 1712559 | Thu thập dữ liệu.<br /> Hỗ trợ xây dựng mô hình cho bài toán. |
-| Huỳnh Ngọc Quân    | 1712689 | Thu thập và phân tích dữ liệu.<br /> Viết báo cáo và phân công. |
+| Huỳnh Ngọc Quân    | 1712689 | Thu thập và phân tích dữ liệu, đặt vấn đề và trả lời câu hỏi.<br /> Viết báo cáo và phân công. |
 | Huỳnh Lê Minh Nhật | 1712632 | Tiền xử lý.<br /> Xây dựng mô hình cho bài toán.             |
 
 
