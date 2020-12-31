@@ -120,18 +120,24 @@ Tập dữ liệu có 157971 dòng và 5 cột với 28274 user đã đánh giá
 
 #### 1. Thu thập url thư viện sách
 
-```
-
-```
+- Trong notebook, việc thu thập url thư viện sách được chia ra làm 4 phương hướng chính:
+- **Lựa chọn theo thể loại (genre)**: Có tổng cộng 21 thể loại khác nhau trong goodreads. Ví dụ url mẫu: https://www.goodreads.com/shelf/show/art
+- **Lựa chọn theo Thời gian (Tháng, năm)**: Được crawl trong khoảng thời gian Jan-2019 -> Dec-2021. Ví dụ url mẫu: https://www.goodreads.com/book/popular_by_date/2020/12?ref=nav_brws_newrels
+- **Lựa chọn theo Album**: Được crawl theo album được chọn trước. Ví dụ: https://www.goodreads.com/list/show/264.Books_That_Everyone_Should_Read_At_Least_Once
+- **Lựa chọn theo Tác giả**: Được crawl theo đường link của mỗi tác giả để lấy danh sách booksl, danh sách tác giả đã được có trong quá trình crawl 3 phần trước. Ví dụ: https://www.goodreads.com/author/list/1825.Harper_Lee
 
 
 
 #### 2. Lấy dữ liệu sách từ url đã thu thập được ở bước 1
 
 ```
+run crawl_info_book_detail.py --min_index <index_range_min> --max_index <index_range_max>
 
 ```
 
+Trong đó:
+
+- `<index_range_min` và `<index_range_max>` là index của sách ở tập dữ liệu bước 1 `Info_Book_Url.csv`
 
 
 #### 3. Lấy url và đánh giá của user từ comment của mỗi url ở bước 1
